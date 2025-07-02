@@ -32,7 +32,7 @@ stages:
         python -m pytest --cov=. --cov-report=xml:$(Build.SourcesDirectory)/coverage.xml --cov-report=html:$(Build.SourcesDirectory)/coverage_html tests/ || true
       displayName: 'Run Python Tests'
 
-    - task: PublishCodeCoverageResults@1
+    - task: PublishCodeCoverageResults@2
       inputs:
         codeCoverageTool: 'Cobertura'
         summaryFileLocation: '$(Build.SourcesDirectory)/coverage.xml'
