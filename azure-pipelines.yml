@@ -53,7 +53,7 @@ stages:
       artifact: CoverageReport
       displayName: 'Download Coverage Report'
 
-    - task: SonarQubePrepare@5
+    - task: SonarQubePrepare@7
       inputs:
         SonarQube: 'SonarQube' # This assumes you've set up a service connection named 'SonarQube-Connection'
         scannerMode: 'CLI'
@@ -65,10 +65,10 @@ stages:
           sonar.python.coverage.reportPaths=$(Pipeline.Workspace)/CoverageReport/coverage.xml
       displayName: 'Prepare SonarQube Analysis'
 
-    - task: SonarQubeAnalyze@5
+    - task: SonarQubeAnalyze@7
       displayName: 'Run SonarQube Analysis'
 
-    - task: SonarQubePublish@5
+    - task: SonarQubePublish@7
       inputs:
         pollingTimeoutSec: '300'
       displayName: 'Publish SonarQube Analysis Results'
