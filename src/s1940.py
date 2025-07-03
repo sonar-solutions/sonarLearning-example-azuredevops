@@ -37,3 +37,24 @@ def fun(d):
   i = 10
   return i + d      # Noncompliant
   i += 1             # this is never executed
+
+
+def fun3(c3):
+  i = 10
+  return i + c3       # Noncompliant
+  i += 1             # this is never executed
+
+def fun2(d2):
+  i = 10
+  return i + d2      # Noncompliant
+  i += 1             # this is never executed
+
+def main():
+    # Input
+    name = input("Enter your name: ")
+
+    # Check if name is empty
+    if is_not_empty(name):
+        print("Hello, {}!".format(name))
+    else:
+        print("Name is empty.")
