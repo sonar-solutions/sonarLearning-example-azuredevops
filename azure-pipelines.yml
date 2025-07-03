@@ -47,6 +47,9 @@ stages:
     pool:
       vmImage: 'ubuntu-latest'
     steps:
+    - checkout: self
+    # Disable shallow fetch
+      fetchDepth: 0
     - download: current
       artifact: CoverageReport
       displayName: 'Download Coverage Report'
