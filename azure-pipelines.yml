@@ -3,10 +3,6 @@ trigger:
     include:
     - main
     - develop
-  
-pr:
-    - main
-    - develop
 
 pool:
   vmImage: 'ubuntu-latest'
@@ -67,7 +63,8 @@ stages:
       displayName: 'Prepare SonarQube Analysis'
 
     - task: SonarQubeAnalyze@7
-      displayName: 'Run SonarQube Analysis'
+      inputs:
+        jdkversion: 'JAVA_HOME_17_X64' # 'JAVA_HOME' | 'JAVA_HOME_17_X64' | 'JAVA_HOME_21_X64'. Required. JDK version source for analysis. Default: JAVA_HOME_17_X64.
 
     - task: SonarQubePublish@7
       inputs:
